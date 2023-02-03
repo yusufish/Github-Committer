@@ -1,0 +1,12 @@
+#!/usr/bin/expect 
+
+set username [lindex $argv 0]
+set token [lindex $argv 1]
+set timeout 1
+
+spawn git push origin main
+expect "Username for 'https://github' :\r"
+send -- "$username\r"
+expect "Password for 'https://$username@github.com' :\r"
+send -- "$token\r"
+expect eof
