@@ -135,13 +135,11 @@ int main() {
         fclose(fp);
 
         chdir("../Github-Committer");
-        system("pwd");
         for (int i = 0; i < counter; ++i) {
             char cmd[BUFSIZE];
             init(cmd);
             strcat(cmd, "git add ");
             strcat(cmd, paths[i]);
-            printf("%s\n", cmd);
             system(cmd);
             init(cmd);
             strcat(cmd, "git commit -m \"");
